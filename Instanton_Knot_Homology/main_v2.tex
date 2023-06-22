@@ -1,0 +1,694 @@
+\documentclass{amsart}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\usepackage{color}
+
+
+\title{The calculation of dimensions of Framed instanton Floer homology of $3$-dimension flow with Knot K from Ball $3$D after Dehn Surgery}
+\author{Yu-Chia Jen,Haoze Pang}
+\address{International Division, Guangzhou Zhixin High School}
+\curraddr{12 Shuiyin Erheng Road, Yuexiu District, Guangzhou, Guangdong, China}
+\email{692578536@qq.com}
+\newtheorem{thm}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newcommand{\im}{{\rm im~}}
+\date{November 2021}
+
+
+\begin{document}
+\begin{abstract}
+\end{abstract}
+\maketitle
+\tableofcontents
+
+
+\section{Introduction}
+Knots theory is an important branch of topology which originated in 20th century. It studies embedded circle in $3$-dimensional manifolds. It has many important applications in theoretical physics, molecular chemistry and composition of biological molecule such as proteins and DNA and so on.
+
+In this paper, we focus on knots inside $\mathbb{R}^3$ and $S^3$. Especially we study the Dehn surgery on knots and a special type of homological invariants of the Dehn surgery called the framed instanton Floer homology, which is denoted by $I^{\sharp}$. A Dehn surgery of a knot $K\subset S^3$ is to remove a tubular neighborhood $N(K)$ of $K$ from $S^3$, and then re-glue it back using a different identification of the toroidal boundary. Note any connected non-separating simple closed curve on a torus can be described as $p$ copies of $m_K$ and $q$ copies of $l_K$, where $m_K$ is the meridian of the knot, $l_K$ is the Seifert longitude of the knot, and $p, q$ are co-prime integers. Different ways of gluing $N(K)$ back give rise to different $3$-manifolds. It turns out that the gluing $3$-manifold only depends on the image of $m_K$.
+
+Suppose $m_K$ is glued to $pm_c+ql_c$, where $m_c$ is the compliment of $m_k$ and $l_c$ is the compliment of $l_K$. This give rise to a new 3-manifold $S^3_{p/q}(K)$. This new space is called the Dehn surgery along $K$ of slope $p/q$. We have special interest when $p/q=2g(K)+1$, where $g(K)$ is the genus of knot $k$.
+
+The objective of the paper is to estimate the total dimension of  $I^{\sharp}(S^{3}_{5}(K))$ of Dehn surgery along knot $7_6$. The rest of the paper is organized as follow: Section \ref{sec2} introduces some necessary definitions of knots theory and linear algebra. In section \ref{sec3}, we calculate the estimated dimension of Knot $7_6$ and show the calculating process.   
+
+\section{Preliminaries}\label{sec2}
+\begin{defn}
+{\bf Knot}
+\end{defn}
+A {\bf knot} $K$ is an embedded circle inside the $3$-dimensional Euclidean space $\mathbb{R}^3$:
+\[K:S^1\hookrightarrow\mathbb{R}^3.\]
+Knots are defined inside the $3$-dimensional space. Because it is hard  to describe and study objects in dimension $3$, we introduce the following definition for our convenience.
+
+\begin{defn}
+A {\bf knot diagram} is a projection of the knot onto some plane in $\mathbb{R}^3$ which only allows double self-intersection.
+\end{defn}
+%A knot diagram is a projection of the knot onto some plane in $\mathbb{R}^3$ which only allow double intersection. There are infinitely many different embeddings of circles into $\mathbb{R}^3$, but many of them can have identical properties. So in order to study different kinds of knots, we make the following definition.
+There are infinitely many different embeddings of circles into $\mathbb{R}^3$, but many of them share similar properties. So in order to study different kinds of knots, we make the following definition.
+
+\begin{defn}
+For a knot $K$, if it has a diagram so that when we transverse the knot, the over and under crossings appear alternatively, then we call this knot an {\bf alternating} knot.
+\end{defn}
+
+
+\begin{defn}
+{\bf Kernel of $f$}
+\end{defn}
+Suppose $V$ and $W$ are two vectors spaces,$f:V\rightarrow W$ is a linear map. In linear algebra, the {\bf kernel} of a linear map is a set of $v$ for which $v \in V$ satisfies $f(v)=0$, $0$ represents the zero vector in $W$:
+\[\ker (f)= \{v\in V\mid f(v)=\vec{0} \in W\}.\]
+
+\begin{defn}
+{\bf Image of $f$}
+\end{defn}
+Suppose $V$ and $W$ are two vectors spaces,$f:V\rightarrow W$ is a linear map. In linear algebra, the {\bf image} of a linear map is a set of $w$ for which $w \in W$ satisfies $f(v)=w,\exists v \in V$:
+\[\im (f)= \{w\in W \mid\exists v\in V,f(v)= w\}.\]
+
+\begin{thm}[{\bf Fundamental theorem of linear algebra}]
+Suppose $f:U\rightarrow V$ is a linear map between finite dimensional vector spaces, then:
+\[\dim \ker (f)+\dim \im (f)=\dim U.\]
+\end{thm}
+
+\begin{thm} \label{thm: A}
+Supposed $A, B$ are both subspaces of $C$, then we have:
+\[\max\{0,\dim A+\dim B-\dim C\}\leq \dim(A\cap B)\leq \min\{\dim A, \dim B\}.\]
+\end{thm}
+
+\begin{thm}[{\cite[Chapter 7 and 8]{rolfsen2003knot}}]\label{thm: KM}
+For any knot $K\subset \mathbb{R}^3$, there exists a polynomial associated to it, which is called {\bf the Alexander polynomial}, and is denoted by
+\begin{equation}\label{eq: alexander polynomial}
+	\Delta_K(t)=a_{n}t^{n}+a_{n-1}t^{n-1}+...+a_{0}+...+a_{-(n-1)}t^{-(n-1)}+a_{-n}t^{-n}.
+\end{equation}
+{\bf The Alexander polynomials} of knots satisfy the following properties:
+\begin{enumerate}
+\item If $K$ is the unknot, then $\Delta_K(1)=1.$
+\item
+For any $i\in\mathbb{Z}$, we have $a_{i}=a_{-i}.$
+\end{enumerate}
+\end{thm}
+
+\begin{thm}[Kronheimer and Mrowka \cite{kronheimer2010knots}]\label{thm: KM}
+For any knot $K \subset\mathbb{R}^3$, there is a finite dimensional vector space, denoted by $KHI(K)$, associated to $K$. It is called {\bf the instanton knot homology} of $K$. It satisfies the following properties:
+\begin{enumerate}
+\item
+There is a decomposition:
+\[KHI(K)=\bigoplus_{i\in\mathbb{Z}} KHI(K,i).\]
+Here $\bigoplus$ means the direct sum of vector spaces. The vector space $KHI(K,i)$ is called the {\bf $i$-th graded part} of $KHI(K)$.
+\item
+Suppose $\Delta_K(t)$ is the Alexander polynomial of $K$ and $a_{i}'s$ are the coefficients of $\Delta_K$ as in (\ref{eq: alexander polynomial}). Then we have
+\[\dim KHI(K,i)\geq |a_{i}|\]
+for all $i\in\mathbb{Z}$. Furthermore, the integer ($\dim KHI(K,i)-|a_{i}|$) is divisible by 2 for all $i\in\mathbb{Z}$.
+\item For any $i\in\mathbb{Z}$, we have
+\[KHI(K,i)\cong KHI(K,-i).\]
+\item
+If $K$ is an alternating knot, then we have
+\[\dim KHI(K,i)=|a_{i}|\]
+for all $i\in\mathbb{Z}$.
+\end{enumerate}
+\end{thm}
+
+\begin{defn}
+Suppose we have a sequence of vector spaces $C_{1},C_{2}$,... Suppose for each $i\in\mathbb{Z}$, we have a linear map
+\[d_{i}:C_{i}\rightarrow C_{i-1}.\]
+$d$ is called the {\bf differential}. The couple $({C_{i},{d_{i}}})$ is called a {\bf chain complex} if the composition of maps
+\[d_{i}\circ d_{i+1}:C_{i}\rightarrow C_{i-1}\]
+is always zero for all $i\in\mathbb{Z}$. Let
+\[C=\bigoplus_{i\in\mathbb{Z}} C_{i}\]
+and let d be the linear map
+\[d:C\rightarrow C\]
+so that d restricts to $d_{i}$ on $C_{i}$, i.e.,
+\[d|_{C_{i}}=d_{i}:C_{i}\rightarrow C_{i-1}.\]
+Then we usually write $(C,d)$ instead of $({C_{i}},{d_{i}})$.
+\end{defn}
+
+\begin{defn}
+Suppose $(C,d)$ is a chain complex. Define
+\[(H,d)=\ker (d)/\im (d)\]
+to be the {\bf homology} of $(C,d)$. Here $\ker$($d$) means the kernel of $d$ and $\im$($d$) means the image of $d$.
+The symbol/means the {\bf quotient} of vector spaces. If
+\[C=\bigoplus_{i\in\mathbb{Z}} C_{i}\]
+and let $d$ be the linear map
+\[d:C\rightarrow C\]
+so that $d$ restricts to $d_{i}$ on $C_{i}$, i.e.,
+\[d|_{C_{i}}=d_{i}:C_{i}\rightarrow C_{i-1}.\]
+Then we can define
+\[H_{i}(C,d)=\ker (d_{i})/\im (d_{i+1})\]
+and we have:
+\[H(C,d)=\bigoplus_{i\in\mathbb{Z}} H_{i}(C,d).\]
+\end{defn}
+
+\begin{thm} [Li and Ye \cite{LY2020}]\label{thm: Li-Ye}
+\end{thm}
+Suppose $K\subset \mathbb{R}^3$ is a knot, and $KHI(K)$ is its instanton knot homology. Then the following is true.
+\begin{enumerate}
+\item
+For any $i,j\in \{-g,...,g\}$, where $g$ is the genus of $K$, there exist a map:
+\[d^{i}_{j}:KHI(k,i)\rightarrow KHI(k,j)\]
+such that if $k+j=2i$, then $d^{i}_{j}\circ d^{k}_{i}=0$.
+\item
+For any $s\in\mathbb{Z}$, define
+\[C_s=KHI(K){\rm~and~}d_s=\sum_{i>j\geq s}d^j_i+\sum_{i<j\leq s}d^j_i.\]
+Then the following is true.
+\begin{itemize}
+\item [a)] If $s=g$ or $-g$, we have
+\[\dim H(C_s,d_s)=1.\]
+\item [b)] We have an isomorphism
+\begin{equation}\label{eq: bent complex}
+I^{\sharp}(S^3_{2g+1}(K))\cong\bigoplus_{s=-g}^g H(C_s,d_s),
+\end{equation}
+where $I^{\sharp}$ is the framed instanton Floer homology of a $3$-manifold, defined in \cite{kronheimer2010instanton} and $S^{3}_{2g+1}(K)$ is the $(2g+1)$-{\bf Dehn surgery} on the knot $K\subset S^3$.
+\end{itemize}
+\end{enumerate}
+
+
+
+
+
+
+\section{Knot $7_6$}\label{sec3}
+In this section, we prove the following theorem, and attempt to find the upper bound of $\dim I^{\sharp}(S^3_{2g+1}(K))$ where $ K = 7_6$. 
+
+\begin{thm}
+	Suppose $K=7_6$. Let $KHI(K)$ be the instanton knot homology of $K$ and
+	$$d^i_j: KHI(K,i)\rightarrow KHI(K,j)$$
+	are the differentials on $KHI(K)$ introduced in Theorem \ref{thm: Li-Ye}. Suppose further that for all $i,j\in\mathbb{Z}$ such that $|i-j|\geq 2$, we have $d^i_j=0$. Then 
+	\[\dim I^{\sharp}(S^3_{5}(K))\leq 17.\]
+\end{thm}
+
+
+\bigskip
+
+Since $K=7_6$ has genus $2$, from Theorem \ref{thm: KM} we have
+$$ KHI(K) = KHI(K,2)\oplus KHI(K,1)\oplus KHI(K,0)\oplus KHI(K,-1)\oplus KHI(K,-2).$$
+Furthermore, $K$ is an alternating knot, and the Alexander polynomial of the knot is
+\[\Delta_{K}(t)=-t^2+5t-7+5t^{-1}-t^{-2},\]
+so from Theorem \ref{thm: KM} we have
+\begin{equation*}
+    \begin{aligned}
+        &\dim(KHI (K, 2))=\dim(KHI (K, -2))= 1,\\
+        &\dim(KHI (K,1))=\dim(KHI (K,-1))= 5,\\
+        &\dim(KHI (K, 0))= 7.
+    \end{aligned}
+\end{equation*}
+
+From Theorem \ref{thm: Li-Ye}, we know
+$$\dim H(C_2,d_2)=\dim H(C_{-2},d_{-2})=1.$$
+
+Since the signature of the knot is $-2$, there are only two possibilities:
+either
+$$\dim (\ker d^1_0\slash \im d^2_1)=1$$
+or
+$$\dim (\ker d^{-1}_{-2}\slash\im d^0_1)=1$$ 
+in $H(C_2,d_2)$ and all other summands of $H(C_2,d_2)$ are zero.
+
+
+
+
+
+\begin{prop}
+Suppose $K=7_6$ and
+$$\dim (\ker d^1_0\slash \im d^2_1)=1.$$
+Then
+$$\dim I^{\sharp}(S^3_{5}(K))\leq 15.$$
+\end{prop}
+
+\textit{Proof.}
+\textbf{Step 1: Computing $\dim \ker d^i_{i-1}$ and $\dim \im d^i_{i-1}$. }
+
+From equation (\ref{eq: bent complex}), we know
+$$\dim I^{\sharp}(S^3_{5}(K))= 2+\dim(H(C_1,d_1))+\dim(H(C_0,d_0))+\dim(H(C_{-1},d_{-1})).$$
+
+From the second and third part of Theorem \ref{thm: Li-Ye},
+\begin{equation}
+    \begin{aligned}
+        1=\dim H(C_2,d_2)=&\dim (\ker d^2_1)+ \dim (\ker d^1_0\slash \im d^2_1) + \dim(\ker d^0_{-1}/ \im d^1_0)\\
+        &+\dim (\ker d^{-1}_{-2}/ \im d^0_{-1})+\dim (\mathbb{R}/\im d^{-1}_{-2}).
+    \end{aligned}
+\end{equation}
+
+Since we have assumed that
+\begin{equation}
+    \dim (\ker d^1_0\slash \im d^2_1)=1,
+\end{equation}
+we can conclude that
+\begin{equation}
+    0= \dim (\ker d^2_1)= \dim(\ker d^0_{-1}/\im d^1_0)= \dim (\ker d^{-1}_{-2}/\im d^0_{-1})= \dim(\mathbb{R} / \im d^{-1}_{-2}).
+\end{equation}
+From the Fundamental Theorem of Linear Algebra, we have
+$$\dim(\im d^2_1)=\dim KHI(K,2)-\dim (\ker d^2_1)=1.$$
+Hence
+$$\dim (\ker d^1_0) = 1+\dim(\im d^2_1)=2.$$
+Again, from the Fundamental Theorem of Linear Algebra, we have
+$$\dim(\im d^1_0)= \dim(KHI (K,1))-\dim (\ker d^1_0)=3.$$
+From equation (5),
+$$\dim(\ker d^0_{-1})-\dim (\im d^1_0)=0.$$
+So
+$$\dim(\ker d^0_{-1})=\dim (\im d^1_0)=3.$$
+From the Fundamental Theorem of Linear Algebra, we have
+$$\dim(\im d^0_{-1})=\dim(KHI(K,0))-\dim(\ker d^0_{-1})=4.$$
+From equation (5),
+$$\dim (\ker d^{-1}_{-2}) = \dim(\im d^0_{-1})=4.$$
+From the Fundamental Theorem of Linear Algebra, we have
+$$\dim(\im d^{-1}_{-2})=\dim(KHI(K,{-1}))-\dim (\ker d^{-1}_{-2})=1,$$
+which is compatible with 
+$$\dim(KHI(K,{-2})=\dim(\im d^{-1}_{-2}),$$
+according to Theorem \ref{thm: Li-Ye}.
+
+From symmetry, $\dim \ker d^i_j= \dim \ker d^{-i}_{-j}$
+and $\dim \im d^i_j= \dim \im d^{-i}_{-j}.$
+
+\textbf{Step 2 Estimating $\dim(H(C_1,d_1))$} 
+
+From Theorem \ref{thm: Li-Ye},
+\begin{equation}
+    \begin{aligned}
+       \dim(H(C_1,d_1))=&\dim(\ker~(d^1_2 \oplus d^1_0))+\dim(\ker~d^0_{-1}/\im(d^1_2 \oplus     d^1_0))\\+&\dim((\ker~d^{-1}_{-2}/\im~d^0_{-1}))+
+        \dim(\mathbb{R}^3/\im d^{-1}_{-2}). 
+    \end{aligned}
+\end{equation}
+
+
+$\ker(d^1_2 \oplus d^1_0)$ is $\ker d^{1}_{2} \cap \ker d^1_0 \subset KHI(K,1)\cong \mathbb{R}^5$, so from Theorem \ref{thm: A}, 
+
+\begin{center}
+${\dim(\ker d^{1}_{2}) + \dim(\ker d^1_0) - \dim (\mathbb{R}^5) }
+\leq
+{\dim(\ker d^{1}_{2} \cap \ker d^1_0)}
+\leq
+{\min (\dim(\ker d^{1}_{2}),\dim (\ker d^1_0))}$,
+\end{center}
+
+
+substituting numbers,
+ 
+ \begin{center}
+     $1\leq\dim(\ker (d^1_2 \oplus d^1_0))\leq2$.
+ \end{center}
+
+\bigskip
+
+\textbf{Case 1 $\dim(\ker (d^1_2 \oplus d^1_0))=1$.}
+
+From the Fundamental Theorem of Linear Algebra, we have
+$$\dim(\im(d^1_2 \oplus d^1_0))= \dim \mathbb{R}^5-\dim(\ker (d^1_2 \oplus d^1_0))= 4,$$
+so
+\begin{equation*}
+    \begin{aligned}
+         \dim H(C_1,d_1) = 
+         &\dim(\ker (d^1_2 \oplus d^1_0))
+         +
+         \dim(\ker d^0_{-1}/\im(d^1_2 \oplus d^1_0))\\
+         &+
+         \dim((\ker d^{-1}_{-2}/\im d^0_{-1})
+         +
+         \dim(\mathbb{R}/\im d^{-1}_{-2})=0.
+    \end{aligned}
+\end{equation*}
+ 
+\textbf{Case 2 $\dim(\ker (d^1_2 \oplus d^1_0))=2$.}
+
+From the Fundamental Theorem of Linear Algebra,
+$$\dim(\im (d^1_2 \oplus d^1_0))= \dim \mathbb{R}^5-\dim(\ker (d^1_2 \oplus d^1_0))= 3,$$
+so
+\begin{equation*}
+    \begin{aligned}
+         \dim H(C_1,d_1) = 
+         &\dim(\ker (d^1_2 \oplus d^1_0))
+         +
+         \dim(\ker d^0_{-1}/\im(d^1_2 \oplus d^1_0))\\
+         &+
+         \dim((\ker d^{-1}_{-2}/\im d^0_{-1})
+         +
+         \dim(\mathbb{R}/\im d^{-1}_{-2})=2.
+    \end{aligned}
+\end{equation*}
+
+\bigskip
+Therefore,
+$\dim H(C_1,d_1) \leq 2$.
+
+From Theorem \ref{thm: KM}, 
+$\max\{\dim H(C_1,d_1)\}\cong\max\{\dim H(C_{-1},d_{-1}\}\cong \mathbb{R}^2$.
+
+
+\bigskip
+\textbf{Step 3: Estimating $H(C_0,d_0)$} 
+
+From Theorem \ref{thm: Li-Ye},
+$$\dim H(C_0,d_0)= 
+\dim(\ker (d^0_1\oplus d^0_{-1}))
++
+\dim((\ker (d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))
++
+\dim \mathbb{R}^2
++
+\dim (\im (d^1_2\oplus d^{-1}_{-2}))
+,$$
+where
+$\ker (d^1_2\oplus d^{-1}_{-2})$ is $\ker d^{-1}_{-2} \oplus \ker d^{1}_{2}$, and $\im (d^1_2\oplus d^{-1}_{-2})$ is $\im d^{-1}_{-2} \oplus \im d^{1}_{2}$.
+Therefore,
+$$\dim(\ker (d^1_2\oplus d^{-1}_{-2})) = \dim (\ker d^{-1}_{-2}) + \dim (\ker d^{1}_{2}) = 8,$$
+$$\dim(\im (d^1_2\oplus d^{-1}_{-2})) = \dim (\im d^{-1}_{-2}) + \dim (\im d^{1}_{2}) = 2.$$
+
+$\dim(\ker (d^0_1\oplus d^0_{-1}))$ is $\ker d^{1}_{2} \cap \ker d^1_0 \subset KHI(K,0)\cong \mathbb{R}^7$, so from Theorem \ref{thm: A},
+$$\dim (\ker d^0_{1})
++ 
+\dim (\ker d^0_{-1} )
+- 
+\dim (\mathbb{R}^7)
+\leq
+\dim (\ker (d^{1}_{2} \cap \ker d^1_0))
+\leq
+\min (\dim (\ker d^0_{1}),\dim (\ker d^0_{-1})).
+$$
+Substituting numbers,
+$$
+0
+\leq 
+{\dim (\ker d^0_{1} \cap \ker d^0_{-1}) }
+\leq 
+3
+$$
+
+\textbf{Case 1 $\dim(\ker (d^0_1\oplus d^0_{-1}))= 0$.}
+
+From the Fundamental Theorem of Linear Algebra,
+$$\dim(\im (d^0_1\oplus d^0_{-1}))= \dim \mathbb{R}^7-\dim(\ker (d^0_1\oplus d^0_{-1}))=7,$$
+so
+\begin{equation*}
+    \begin{aligned}
+       \dim H(C_0,d_0)= 
+        &
+        \dim(\ker (d^0_1\oplus d^0_{-1}))
+        +
+        \dim((\ker (d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))\\
+        &
+        +\dim \mathbb{R}^2/\dim (\im (d^1_2 \oplus d^{-1}_{-2}))
+        =3.
+    \end{aligned}
+\end{equation*}
+
+
+\textbf{Case 2 $\dim(\ker (d^0_1\oplus d^0_{-1}))= 1$.}
+
+From the Fundamental Theorem of Linear Algebra,
+$$\dim(\im (d^0_1\oplus d^0_{-1}))= \dim \mathbb{R}^7-\dim(\ker (d^0_1\oplus d^0_{-1}))=6,$$
+so
+\begin{equation*}
+    \begin{aligned}
+       \dim H(C_0,d_0)= 
+        &\dim(\ker (d^0_1\oplus d^0_{-1}))
+        +
+        \dim((\ker (d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))\\
+        &+
+        \dim \mathbb{R}^2/\dim (\im (d^1_2 \oplus d^{-1}_{-2}))
+        =5.
+    \end{aligned}
+\end{equation*}
+
+\textbf{Case 3 $\dim(\ker (d^0_1\oplus d^0_{-1}))= 2$.}
+
+From the Fundamental Theorem of Linear Algebra,
+$$\dim(\im (d^0_1\oplus d^0_{-1}))= \dim \mathbb{R}^7-\dim(\ker (d^0_1\oplus d^0_{-1}))=5,$$
+so
+\begin{equation*}
+    \begin{aligned}
+       \dim H(C_0,d_0)= 
+        &\dim(\ker (d^0_1\oplus d^0_{-1}))
+        +
+        \dim((\ker (d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))\\
+        &+
+        \dim \mathbb{R}^2/\dim (\im (d^1_2 \oplus d^{-1}_{-2}))
+        =7.
+    \end{aligned}
+\end{equation*}
+
+\textbf{Case 4 $\dim(\ker (d^0_1\oplus d^0_{-1}))= 3$.}
+
+From the Fundamental Theorem of Linear Algebra,
+$$\dim(\im (d^0_1\oplus d^0_{-1}))= \dim \mathbb{R}^7-\dim(\ker (d^0_1\oplus d^0_{-1}))=4,$$
+so
+\begin{equation*}
+    \begin{aligned}
+       \dim H(C_0,d_0)= 
+        &\dim(\ker (d^0_1\oplus d^0_{-1}))
+        +
+        \dim((\ker (d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))\\
+        &+
+        \dim \mathbb{R}^2/\dim (\im (d^1_2 \oplus d^{-1}_{-2}))
+        =9.
+    \end{aligned}
+\end{equation*}
+Therefore,
+$\dim H(C_0,d_0) \leq 9$.
+
+\bigskip
+In conclusion, When
+$\dim (\ker d^1_0\slash \im d^2_1)=1$, $K=7_6$,
+$$ \dim I^{\sharp}(S^3_{5}(K))\leq 15.$$
+
+\begin{prop}
+Suppose $K=7_6$ and
+$$\dim (\ker d^{-1}_{-2}\slash \im d^0——{-1})=1.$$
+Then
+$$\dim I^{\sharp}(S^3_{5}(K))\leq 17.$$
+\end{prop}
+
+\textit{Proof.}
+\textbf{Step 1: Computing $\dim \ker d^i_{i-1}$ and $\dim \im d^i_{i-1}$. }
+
+From (\ref{eq: bent complex}), we know
+$$\dim I^{\sharp}(S^3_{5}(K))= 2+\dim(H(C_1,d_1))+\dim(H(C_0,d_0))+\dim(H(C_{-1},d_{-1}))$$
+
+From the second and third part of Theorem \ref{thm: Li-Ye},
+\begin{equation}
+    \begin{aligned}
+        1=\dim H(C_2,d_2)=&\dim (\ker d^2_1)+ \dim (\ker d^1_0\slash \im d^2_1) + \dim(\ker d^0_{-1}/ \im d^1_0)\\
+        &+\dim (\ker d^{-1}_{-2}/ \im d^0_{-1})+\dim (\mathbb{R}/\im d^{-1}_{-2})
+    \end{aligned}
+\end{equation}
+
+Since we have assumed that
+\begin{equation}
+    \dim (\ker d^1_0\slash \im d^2_1)=1,
+\end{equation}
+we can conclude that
+\begin{equation}
+    0= \mathbb{R}/\im d^{-1}_{-2}= \dim(\ker d^2_1)= \dim (\ker d^1_0/ \im d^2_1)= \dim(\ker d^0_{-1}/ \im d^1_0)
+\end{equation}
+
+From the Fundamental Theorem of Linear Algebra, we have
+$$\dim(\ker d^{-1}_{-2})=\dim KHI(K,-2)-\dim (\im d^{-1}_{-2})=4.$$
+From equation (9),
+$$\dim (\im d^0_{-1}) = \dim(\ker d^{-1}_{-2})-1=3 .$$
+Again, from the Fundamental Theorem of Linear Algebra, we have
+$$\dim(\ker d^0_{-1})= \dim(KHI (K,0))-\dim (\im d^0_{-1})=4.$$
+From equation (9),
+$$\dim(\ker d^0_{-1})=\dim (\im d^1_0)=4.$$
+From the Fundamental Theorem of Linear Algebra, we have
+$$\dim(\ker d^1_0)=\dim(KHI(K,1))-\dim(\im d^1_0\ker d^0_{-1})=1$$
+From equation (9),
+$$\dim (\im d^2_1) = \dim(\ker d^1_0)= 1.$$
+Again, from the Fundamental Theorem of Linear Algebra, we have
+$$\dim(\ker d^2_1)=\dim(KHI(K,2))-\dim (\im d^2_1)=0.$$
+
+From symmetry, $\dim \ker d^i_j= \dim \ker d^{-i}_{-j}$
+and $\dim \im d^i_j= \dim \im d^{-i}_{-j}.$
+
+\textbf{Step 2 Estimating $\dim(H(C_1,d_1))$} 
+
+From Theorem \ref{thm: Li-Ye},
+\begin{equation}
+    \begin{aligned}
+       \dim(H(C_1,d_1))=&\dim(\ker~(d^1_2 \oplus d^1_0))+\dim(\ker~d^0_{-1}/\im(d^1_2 \oplus     d^1_0))\\+&\dim((\ker~d^{-1}_{-2}/\im~d^0_{-1}))+
+        \dim(\mathbb{R}^3/\im d^{-1}_{-2}). 
+    \end{aligned}
+\end{equation}
+
+
+$\ker(d^1_2 \oplus d^1_0)$ is $\ker d^{1}_{2} \cap \ker d^1_0 \subset KHI(K,1)\cong \mathbb{R}^5$, so from Theorem \ref{thm: A}, 
+
+\begin{center}
+${\dim(\ker d^{1}_{2}) + \dim(\ker d^1_0) - \dim (\mathbb{R}^5) }
+\leq
+{\dim(\ker d^{1}_{2} \cap \ker d^1_0)}
+\leq
+{min (\dim(\ker d^{1}_{2}),\dim (\ker d^1_0))}$,
+\end{center}
+
+substituting numbers,
+ 
+ \begin{center}
+     $0\leq\dim(\ker (d^1_2 \oplus d^1_0))\leq1$.
+ \end{center}
+
+\bigskip
+
+\textbf{Case 1 $\dim(\ker (d^1_2 \oplus d^1_0))=0$.}
+
+From the Fundamental Theorem of Linear Algebra,
+$$\dim(\im(d^1_2 \oplus d^1_0))= \dim \mathbb{R}^5-\dim(\ker (d^1_2 \oplus d^1_0))= 5$$
+so,
+\begin{equation*}
+    \begin{aligned}
+         \dim H(C_1,d_1) = 
+         &\dim(\ker (d^1_2 \oplus d^1_0))
+         +
+         \dim(\ker d^0_{-1}/\im(d^1_2 \oplus d^1_0))\\
+         &+
+         \dim((\ker d^{-1}_{-2}/\im d^0_{-1})
+         +
+         \dim(\mathbb{R}/\im d^{-1}_{-2})=0.
+    \end{aligned}
+\end{equation*}
+
+\textbf{Case 2 $\dim(\ker (d^1_2 \oplus d^1_0))=1$.}
+
+From the Fundamental Theorem of Linear Algebra,
+$$\dim(\im (d^1_2 \oplus d^1_0))= \dim \mathbb{R}^5-\dim(\ker (d^1_2 \oplus d^1_0))= 4$$
+so,
+\begin{equation*}
+    \begin{aligned}
+         \dim H(C_1,d_1) = 
+         &\dim(\ker (d^1_2 \oplus d^1_0))
+         +
+         \dim(\ker d^0_{-1}/\im(d^1_2 \oplus d^1_0))\\
+         &+
+         \dim((\ker d^{-1}_{-2}/\im d^0_{-1})
+         +
+         \dim(\mathbb{R}/\im d^{-1}_{-2})=2.
+    \end{aligned}
+\end{equation*}
+
+\bigskip
+Therefore,
+$\dim H(C_1,d_1) \leq 2$.
+
+From Theorem \ref{thm: KM}, 
+$\dim H(C_1,d_1) \cong \dim H(C_{-1},d_{-1}) \cong \mathbb{R}^2$, so
+ $\dim H(C_{-1},d_{-1}) \leq2$.
+
+
+\bigskip
+\textbf{Step 3: Estimating $H(C_0,d_0)$} 
+
+From Theorem \ref{thm: Li-Ye},
+$$\dim H(C_0,d_0)= 
+\dim(\ker (d^0_1\oplus d^0_{-1}))
++
+\dim((\ker (d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))
++
+\dim \mathbb{R}^2
++
+\dim (\im (d^1_2\oplus d^{-1}_{-2}))
+,$$
+where
+$\ker (d^1_2\oplus d^{-1}_{-2})$ is $\ker d^{-1}_{-2} \oplus \ker d^{1}_{2}$, and $\im (d^1_2\oplus d^{-1}_{-2})$ is $\im d^{-1}_{-2} \oplus \im d^{1}_{2}$.
+Therefore,
+$$\dim(\ker (d^1_2\oplus d^{-1}_{-2})) = \dim (\ker d^{-1}_{-2}) + \dim (\ker d^{1}_{2}) = 8$$
+$$\dim(\im (d^1_2\oplus d^{-1}_{-2})) = \dim (\im d^{-1}_{-2}) + \dim (\im d^{1}_{2}) = 2.$$
+
+$\dim(\ker (d^0_1\oplus d^0_{-1}))$ is $\ker d^{1}_{2} \cap \ker d^1_0 \subset KHI(K,0)\cong \mathbb{R}^7$, so from Theorem \ref{thm: A}
+$$\dim (\ker d^0_{1})
++ 
+\dim (\ker d^0_{-1} )
+- 
+\dim (\mathbb{R}^7)
+\leq
+\dim (\ker (d^{1}_{2} \cap \ker d^1_0))
+\leq
+\min (\dim (\ker d^0_{1}),\dim (\ker d^0_{-1})).
+$$
+Substituting numbers,
+$$1\leq {\dim (\ker d^0_{1} \cap \ker d^0_{-1}) }\leq 4.$$
+
+\textbf{Case 1 $\dim(\ker~(d^0_1\oplus d^0_{-1}))= 1$.}
+
+From the Fundamental Theorem of Linear Algebra,
+$$\dim(\im~(d^0_1\oplus d^0_{-1}))= \dim \mathbb{R}^7-\dim(\ker~(d^0_1\oplus d^0_{-1}))=6,$$
+so
+\begin{equation*}
+    \begin{aligned}
+       \dim H(C_0,d_0)= 
+        &\dim(\ker (d^0_1\oplus d^0_{-1}))
+        +
+        \dim((\ker (d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))\\
+        &+
+        \dim \mathbb{R}^2/\dim (\im (d^1_2 \oplus d^{-1}_{-2}))
+        =3.
+    \end{aligned}
+\end{equation*}
+
+
+\textbf{Case 2 $\dim(\ker (d^0_1\oplus d^0_{-1}))= 2$.}
+
+From the Fundamental Theorem of Linear Algebra,
+$$\dim(\im (d^0_1\oplus d^0_{-1}))= \dim \mathbb{R}^7-\dim(\ker (d^0_1\oplus d^0_{-1}))=5,$$
+so
+\begin{equation*}
+    \begin{aligned}
+       \dim H(C_0,d_0)= 
+        &\dim(\ker (d^0_1\oplus d^0_{-1}))
+        +
+        \dim((\ker (d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))\\
+        &+
+        \dim \mathbb{R}^2/\dim (\im (d^1_2 \oplus d^{-1}_{-2}))
+        =5.
+    \end{aligned}
+\end{equation*}
+
+\textbf{Case 3 $\dim(\ker (d^0_1\oplus d^0_{-1}))= 3$.}
+
+From the Fundamental Theorem of Linear Algebra,
+$$\dim(\im (d^0_1\oplus d^0_{-1}))= \dim \mathbb{R}^7-\dim(\ker (d^0_1\oplus d^0_{-1}))=4,$$
+so
+\begin{equation*}
+    \begin{aligned}
+       \dim H(C_0,d_0)= 
+        &\dim(\ker (d^0_1\oplus d^0_{-1}))
+        +
+        \dim((\ker (d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))\\
+        &+
+        \dim \mathbb{R}^2/\dim (\im (d^1_2 \oplus d^{-1}_{-2}))
+        =7.
+    \end{aligned}
+\end{equation*}
+
+\textbf{Case 4 $\dim(\ker (d^0_1\oplus d^0_{-1}))= 4$.}
+
+From the Fundamental Theorem of Linear Algebra,
+$$\dim(\im (d^0_1\oplus d^0_{-1}))= \dim \mathbb{R}^7-\dim(\ker (d^0_1\oplus d^0_{-1}))=3,$$
+so
+\begin{equation*}
+    \begin{aligned}
+       \dim H(C_0,d_0)= 
+        &\dim(\ker (d^0_1\oplus d^0_{-1}))
+        +
+        \dim((\ker (d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))\\
+        &+
+        \dim \mathbb{R}^2/\dim (\im (d^1_2 \oplus d^{-1}_{-2}))
+        =9.
+    \end{aligned}
+\end{equation*}
+Therefore,
+$\dim H(C_0,d_0)\leq 9$.
+
+When
+$\dim (\ker d^{-1}_{-2}\slash \im d^0_{-1})=1$, $K=7_6$,
+$$\dim I^{\sharp}(S^3_{5}(K))\leq 17.$$
+
+\bigskip
+In conclusion, when $K=7_6$ 
+$$\dim I^{\sharp}(S^3_{5}(K))\leq17.$$
+
+ 
+
+\bibliographystyle{alpha}
+\bibliography{ref.bib}
+
+
+
+\end{document}

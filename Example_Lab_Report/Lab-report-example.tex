@@ -1,0 +1,61 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+%\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{fontenc}
+%\usepackage{helvet}
+%above 3 lines are the commands that implement Helvetica font
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage{titlesec}
+\titleformat*{\section}{\bfseries \normalsize}
+\titlelabel{\thetitle.\quad}
+%the above 2 lines sets the section font as 12pt
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage[british]{babel}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\usepackage{placeins}
+%line above prevents floating over sections
+\usepackage{array}
+%the array package enables options like >{}, <{} in the tabuler environment
+\usepackage[font=footnotesize]{caption}
+\usepackage{booktabs}
+\setlength{\heavyrulewidth}{1.5pt}
+\usepackage{siunitx}
+\usepackage{url}
+\begin{document}
+{\pagestyle{empty}
+	\begin{center}
+		{\LARGE\bfseries Title first word starts with a capital\\
+		
+		}
+		\vspace{\baselineskip}
+		{\itshape Haoze Pang \\
+			11019521\\
+		}
+		\vspace{\baselineskip}	
+		Department of Physics and Astronomy\\
+		The University of Manchester\\
+		\vspace{\baselineskip}	
+		First Year Laboratory Report\\
+		\vspace{\baselineskip}	
+		{\today}\\
+		\vspace{2\baselineskip}		
+		This experiment was performed in collaboration with \textit{Alec Bury 10833524}.
+	\end{center}
+	\vspace{4\baselineskip}
+	\textbf{Abstract}
+	
+	Insert your abstract here.  Remember to delete the original text.  The abstract should be about 50 ‒ 200 words, and give a very brief overview of the experiment and main results.  Abstracts are important because they set the tone for the rest of the document.  If your abstract includes a reference citation then give the source below the abstract.  This ensures that the abstract is self-contained.  Do not change the fonts or format of this Title Page, which is not numbered.  The rest of your report should start on the next page, page 2.
+\clearpage}
+\section{Introduction}
+\section{Theory}
+\section{Experimental Method}
+\section{Data and Analysis}
+\section{Results and Discussion}
+\section{Summary}
+\bibliographystyle{plain}
+\bibliography{Undergraduate-lab-report-common-references.bib}
+\end{document}

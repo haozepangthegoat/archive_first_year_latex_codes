@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{array}
+\setlength{\extrarowheight}{4pt}
+\begin{document}
+\begin{tabular}{@{}>{\itshape}l>{\centering\arraybackslash}l!{:}l<{.}@{}}
+  \hline
+  Info:     & Software & \LaTeX\\
+            & Author   & Leslie Lamport\\[12pt]
+            & Website  & www.latex-project.org\\
+  \hline
+\end{tabular}
+\begin{tabular}{*{3}r}
+        \hline
+        \textbf{Column 1} & \textbf{Column 2} & \textbf{Column 3} \\
+        \hline
+        Row 1, Columndddddddd 1 & Row 1, Column 2 & Row 1, Column 3 \\
+        Row 2, Coluddddmn 1 & Row 2, Column 2 & Row 2, Column 3 \\
+        Row 3, Column 1 & Row 3, Column 2 & Row 3, Column 3 \\
+        \hline
+    \end{tabular}
+\end{document}

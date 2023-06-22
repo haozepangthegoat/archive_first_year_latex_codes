@@ -1,0 +1,490 @@
+\documentclass{amsart}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+
+
+\title{The calculation of dimensions of Framed instanton Floer homology of $3$-dimension flow with Knot K from Ball $3$D after Dehn Surgery}
+\author{Yu-Chia Jen,Haoze Pang}
+\address{International Division, Guangzhou Zhixin High School}
+\curraddr{12 Shuiyin Erheng Road, Yuexiu District, Guangzhou, Guangdong, China}
+\email{692578536@qq.com}
+\newtheorem{thm}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+%\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+%\theoremstyle{definition}
+%\newtheorem{defn}[thm]{Definition}
+\newcommand{\im}{{\rm im}}
+\date{November 2021}
+
+
+\begin{document}
+\begin{abstract}
+\end{abstract}
+\maketitle
+\tableofcontents
+
+
+\section{Introduction}
+In this paper, we will estimate the possible maximum dimension of homology of chain complex.
+
+Different ways of glueing back $N(K) give rise to different spaces, which depends only on the image of mk. S
+
+
+\section{Preliminaries}
+\begin{defn}
+Knot
+\end{defn}
+A knot $K$ is an embedded circle inside the $3$-dimensional Euclidean space $\mathbb{R}^3$.
+\[K:S^1\hookrightarrow\mathbb{R}^3\]
+Knots are defined inside the $3$-dimensional space, while it is hard  to describe and study objects in dimension $3$. So we introduce the following definition for our convenience.
+
+\begin{defn}
+Knot diagram.
+\end{defn}
+A knot diagram is a projection of the knot onto some plane in $\mathbb{R}^3$ which only allow double intersection. There are infinitely many different embeddings of circles into $\mathbb{R}^3$, but many of them can have identical properties. So in order to study different kinds of knots, we make the following definition.
+
+\begin{defn}
+Alternating Knot
+\end{defn}
+For some knot diagrams, if we transverse the knot, then over and under crossing appears alternatively.
+
+
+\begin{defn}
+Kernel of $f$
+\end{defn}
+Suppose $V$ and $W$ are two vectors spaces,$f:V\rightarrow W$ is a linear map.In linear algebra, the kernel of a linear map $f:V\rightarrow W$ is the set of $v$ of $V$ for which $f(v)=0$, $0$ represents the zero vector in $W$:
+\[\ker(f)= \{v\in V\mid f(v)=\vec{0} \in W\}\]
+
+\begin{defn}
+Image of $f$
+\end{defn}
+Suppose $V$ and $W$ are two vectors spaces,$f:V\rightarrow W$ is a linear map.In linear algebra, the image of a linear map $f:V\rightarrow W$ is the set of $w$ of $W$ for which satisfies $f(v)=w,\exists v \in V$:
+\[\im (f)= \{w\in W \mid\exists v\in V,f(v)= w\}\]
+
+\begin{thm}
+Fundamental theorem of linear algebra
+\end{thm}
+Suppose $f:U\rightarrow V$ is a linear map between finite dimensional vector spaces,then:
+\[\dim \ker(f)+\dim \im(f)=\dim U\]
+
+\begin{thm}
+Supposed $A, B$ are both subspace of $C$,then we have:
+\[max\{0,\dim A+\dim B-\dim C\}\leq \dim(A\cap B)\leq min\{\dim A, \dim B\}\]
+\end{thm}
+
+\begin{thm}
+Alexander polynomial
+\end{thm}
+For any knot $K\subset \mathbb{R}^3$, there exists a polynomial that is associated to it.This polynomial is called Alexander polynomial.The definition of Alexander polynomial is in(ADD REFERENCE):\\\\
+(1,1)\;\;\;\;\;\;\;\;\;\;\;\;\;\;$\Delta_K(t)=a_{n}t^{n}+a_{n-1}t^{n-1}+...+a_{0}+...+a_{-(n-1)}t^{-(n-1)}+a_{-n}t^{-n}.$\\\\
+Alexander polynomial satisfies the following properties:
+\begin{enumerate}
+\item
+$\Delta_K(1)=1.$
+\item
+For any $i\in\mathbb{Z}$,we have $a_{i}=a_{-i}.$
+\end{enumerate}
+
+\begin{thm}
+For any knot $K \subset\mathbb{R}^3$, there is a vector space $KHI(K)$ associated to $K$. It is called the instanton knot homology of $K$(ADD REFERENCE). It satisfies the following properties:
+\begin{enumerate}
+\item
+There is a decomposition:
+$KHI(K)=\oplus KHI(K,i)$.
+Here $\oplus$ means taking direct sum. The vector space $KHI(K,i)$ is called the $i-th$ graded part of $KHI(K)$.
+\item
+Suppose $\Delta_K(t)$ is the Alexander polynomial of $K$ and $a_{i}'s$ are the coefficients of $\Delta_K$ as in (1,1). Then we have
+\[\dim KHI(K,i)\geq |a_{i}|\]
+for all $i\in\mathbb{Z}$ and the integer ($\dim KHI(K,i)-|a_{i}|$) is divisible by 2 for all $i\in\mathbb{Z}$. Here dim means the dimension of a vector space.
+\item
+For any $i\in\mathbb{Z}$, we have
+\[KHI(K,i)\cong KHI(K,-i)\]
+\item
+If $K$ is an alternating knot, then we have
+\[\dim KHI(K,i)=|a_{i}|\]
+for all $i\in\mathbb{Z}$.
+\end{enumerate}
+\end{thm}
+
+\begin{defn}
+Chain complex and Differential
+\end{defn}
+Suppose we have a sequence of vectors spaces $C_{1},C_{2}$,... Suppose for each $i\in\mathbb{Z}$,we have a linear map
+\[d_{i}:C_{i}\rightarrow C_{i-1}.\]
+$d$ is called the differential.The couple $({C_{i},{d_{i}}})$ is called a chain complex if the composition of maps
+\[d_{i}\circ d_{i+1}:C_{i}\rightarrow C_{i-1}\]
+is always zero for all $i\in\mathbb{Z}$.Let
+\[C=\oplus C_{i}\]
+and let d be the linear map
+\[d:C\rightarrow C\]
+so that d restricts to $d_{i}$ on $C_{i}$, i.e.,
+\[d|_{C_{i}}=d_{i}:C_{i}\rightarrow C_{i-1}\]
+Then we usually write$(C,d)$ instead of $({C_{i}},{d_{i}})$
+
+\begin{defn}
+Homology
+\end{defn}
+Suppose $(C,d)$ is a chain complex. Define
+\[(H,d)=ker (d)/\im (d)\]
+to be homology of $(C,d)$. Here $\ker$($d$) means the kernel of $d$ and $\im$($d$) means the image of $d$.
+The symbol/means the quotient of vectors spaces. If
+\[C=\oplus C_{i}\]
+and let $d$ be the linear map
+\[d:C\rightarrow C\]
+so that $d$ restricts to $d_{i}$ on $C_{i}$, i.e.,
+\[d|_{C_{i}}=d_{i}:C_{i}\rightarrow C_{i-1}\]
+Then we can define
+\[H_{i}(C,d)=\ker(d_{i})/\im(d_{i+1})\]
+and we have:
+\[H(C,d)=\oplus H_{i}(C,d).\]
+
+\begin{thm}
+(Proposition of Li-Ye)
+\end{thm}
+In(ADD REFERENCE) , two researchers proved the following:
+\begin{enumerate}
+\item
+For any $i,j\in \{-g,...,g\}$ ($g=g(k)$, knot genus),there exist a map:
+\[d^{i}_{j}:KHI(k,i)\rightarrow KHI(k,j)\]
+Such that: if $k+j=2i$ then $d^{i}_{j}\circ d^{k}_{i}=0$
+\item
+For any knot $K \subset\mathbb{R}^3$, the dimension of homology $(C_{2},d_{2})$ and $(C_{-2},d_{-2})$ is always 1.
+\end{enumerate}
+
+
+\section{Knot $7_6$}
+\textbf{Basic Information:}
+
+Alexander Polynomial: 	$1-5t+7t^2-5t^3+t^4$ 
+
+Genus : $2$
+
+Signature: $-2$
+\bigskip
+
+\textbf{Deductions:} 
+\bigskip
+
+From Proposition(Li-Ye): 
+
+\begin{center}
+  $ \dim H(C_2,d_2)=\dim H(C_{-2},d_{-2})=1$
+\end{center}
+   
+
+
+Since the signature of the knot is $-2$, we know that 
+\begin{center}
+$\dim (\ker d^1_0\slash \im d^2_1)=1$, or
+$\dim (\ker d^{-1}_{-2}\slash\im d^0_1)=1$
+\end{center}
+in $H(C_2,d_2)$, and the rest of its component is $0$.
+
+
+
+%case 1
+\bigskip
+\textbf{Case 1:} $\dim (\ker d^1_0\slash \im d^2_1) =1$
+
+%from xx, we know that
+$\dim H(C_2,d_2)= \dim(\ker d^2_1)+\dim (\ker d^1_0\slash \im d^2_1)$
+
+
+
+Under such circumstance, we found:
+
+\begin{center}
+$\dim (\ker d^2_1) = 1$, and $\dim(\im d^2_1)=1$
+ 
+$\dim (\ker d^1_0) = 2$, and $\dim(\im d^1_0) = 3$
+ 
+$\dim (\ker d^0_{-1}) = 3$,  and $\dim(\im d^0_{-1})= 4$
+ 
+$\dim (\ker d^{-1}_{-2}) = 4$, and $dim(\im d^{-1}_{-2}) = 1$
+\end{center}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ %hc1d1
+ \bigskip
+ Now, we calculate $H(C_1,d_1)$.
+
+
+$\ker (d^1_2 \oplus d^1_0)$ is $\ker d^{1}_{2} \cap \ker d^1_0$ in $ KHI(\Delta k,1)$( $\mathbb{R}^5$) 
+
+So,
+\begin{center}
+${\dim(\ker d^{1}_{2}) + \dim(\ker d^1_0) - \dim (\mathbb{R}^5) }
+\leq
+{\dim(\ker d^{1}_{2} \cap \ker d^1_0)}
+\leq
+{\min (\dim(\ker~d^{1}_{2}),\dim (\ker~d^1_0))}$
+\end{center}
+
+
+Substituting numbers, we get: 
+ 
+ \begin{center}
+     $1\leq\dim(\ker (d^1_2 \oplus d^1_0))\leq2$
+ \end{center}
+ 
+
+\bigskip
+From the fundamental theorem of linear algebra,
+
+\begin{center}
+    $\dim(\ker~(d^1_2 \oplus d^1_0))+\dim(\im~(d^1_2 \oplus d^1_0))= \dim \mathbb{R}^5=5$
+\end{center}
+
+
+
+
+
+%sit1
+\bigskip
+
+\textbf{Situation 1}
+
+\begin{center}
+$\dim(\ker(d^1_2 \oplus d^1_0))=1$
+            
+$\dim(\im(d^1_2 \oplus d^1_0))=4$
+\end{center}
+
+            
+\bigskip
+In this situation,
+
+\begin{center}
+    $\dim H(C_1,d_1) = 
+\dim(\ker~(d^1_2 \oplus d^1_0))
++
+\dim(\ker~d^0_{-1}/\im(d^1_2 \oplus d^1_0))
++
+\dim((\ker~d^{-1}_{-2}/im~d^0_{-1})
++
+\dim(\mathbb{R}^3/\im d^{-1}_{-2})=0$
+\end{center}
+
+
+%sit2
+\bigskip
+\textbf{Situation 2}
+
+$\dim(\ker~(d^1_2 \oplus d^1_0))=2$
+            
+$dim(\im~(d^1_2 \oplus d^1_0))=3$
+            
+\bigskip
+In this situation,
+
+\bigskip
+$\dim H(C_1,d_1) 
+= 
+\dim(\ker~(d^1_2 \oplus d^1_0))
++
+\dim(\ker~d^0_{-1}/\im(d^1_2 \oplus d^1_0))
++
+\dim((\ker~d^{-1}_{-2}/im~d^0_{-1})
++
+\dim(R^3/\im d^{-1}_{-2})
+=
+2$
+
+\bigskip
+In case 1,
+The upper bound of $\dim H(C_1,d_1)$ is $2$ .
+
+From symmetry, we know that the upper bound of $\dim H(C_{-1},d_{-1})$ is also $2$.
+
+
+
+
+
+
+%h00
+\bigskip
+Now, we calculate $H(C_0,d_0)$.
+
+$\dim(\ker (d^1_2\oplus d^{-1}_{-2})) = \dim (\ker d^{-1}_{-2}) + \dim (\ker d^{1}_{2}) = 8$
+
+$\dim(\im (d^1_2\oplus d^{-1}_{-2})) = \dim (\im d^{-1}_{-2}) + \dim (\im d^{1}_{2}) = 2$
+
+%situs
+\bigskip
+$\dim (\ker d^0_{1})
++ 
+\dim~(\ker d^0_{-1} )
+- 
+\dim R^7
+\leq
+\dim (\ker (d^{1}_{2} \cap \ker~d^1_0))
+\leq
+min (\dim (\ker d^0_{1}),\dim (\ker d^0_{-1}))$
+
+So,
+
+$0\leq {dim (ker d^0_{1} \cap ker d^0_{-1}) }\leq 3$
+
+$\dim(\ker~(d^0_1\oplus d^0_{-1}))
+= 
+\dim ((\ker d^0_{1} \cap \ker d^0_{-1})) $
+
+\bigskip
+From the fundamental theorem of linear algebra,
+
+$\dim(\ker~(d^0_1\oplus d^0_{-1}))
++
+\dim(\im~(d^0_1\oplus d^0_{-1}))
+= 
+dim R^7
+=7$
+
+
+
+\bigskip
+\textbf{Situation 1}
+
+$\dim(\ker~(d^0_1\oplus d^0_{-1}))= 0$
+
+$\dim(\im~(d^0_1\oplus d^0_{-1}))=7$
+
+\bigskip
+So,
+
+$\dim~H(C_0,d_0)= 
+\dim(\ker~(d^0_1\oplus d^0_{-1}))
++
+\dim((\ker~(d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))
++
+\dim R^2/+
+\dim (\im~(d^1_2\oplus d^{-1}_{-2}))
+=1$
+
+
+
+\bigskip
+\textbf{Situation 2}
+
+$\dim(\ker~(d^0_1\oplus d^0_{-1}))= 1$
+
+$\dim(\im~(d^0_1\oplus d^0_{-1}))=6$
+
+\bigskip
+So,
+
+$\dim~H(C_0,d_0)= 
+\dim(\ker~(d^0_1\oplus d^0_{-1}))
++
+\dim((\ker~(d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))
++
+\dim R^2/+
+\dim (\im~(d^1_2\oplus d^{-1}_{-2}))
+=3$
+
+
+\bigskip
+\textbf{Situation 3}
+
+$\dim(\ker~(d^0_1\oplus d^0_{-1}))= 2$
+
+$\dim(\im~(d^0_1\oplus d^0_{-1}))=5$
+
+\bigskip
+So,
+
+$\dim~H(C_0,d_0)= 
+\dim(\ker~(d^0_1\oplus d^0_{-1}))
++
+\dim((\ker~(d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))
++
+\dim R^2/+
+\dim (\im~(d^1_2\oplus d^{-1}_{-2}))
+=5$
+
+\bigskip
+\textbf{Situation 4}
+
+$\dim(\ker~(d^0_1\oplus d^0_{-1}))= 3$
+
+$\dim(\im~(d^0_1\oplus d^0_{-1}))=4$
+
+\bigskip
+So,
+
+$\dim~H(C_0,d_0)= 
+\dim(\ker~(d^0_1\oplus d^0_{-1}))
++
+\dim((\ker~(d^1_2\oplus d^{-1}_{-2})/\im(d^0_1\oplus d^0_{-1}))
++
+\dim R^2/+
+\dim (\im~(d^1_2\oplus d^{-1}_{-2}))
+=7$
+
+
+\bigskip
+In case 1, the upper bound of $\dim H(C_0,d_0)$ is $7$.
+
+\bigskip
+In case 1, 
+max{
+$\dim H(C_2,d_2)
++
+\dim H(C_1,d_1)
++
+\dim H(C_0,d_0)
++
+\dim H(C_{-1},d_{-1})
++
+\dim H(C_{-2},d_{-2})$}
+$=$
+$15$
+
+
+
+
+
+  
+  
+  
+
+
+
+%case2
+\bigskip
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+\end{document}
